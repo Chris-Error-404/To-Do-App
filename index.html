@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST | Nzenwata Christopher</title>
+
+    <link rel="stylesheet" href="./public/css/output.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--  npx @tailwindcss/cli -i ./src/input.css -o ./public/css/output.css --watch  -->
+</head>
+<body class="bg-var(--white) min-h-[100svh] flex flex-col items-center justify-center">
+
+    <div class="mx-auto container grid grid-cols-3 max-w-[1400px] items-start justify-start">
+
+        <!--input-->
+        <div class="px-4 py-5">
+
+            <h1 class="font-bold text-center text-4xl text-[var(--black)] mb-8">To Do <span class="text-[var(--blue)]">App</span></h1>
+            
+
+            <form action="#" class="flex items-center justify-center">
+
+                <input type="text" id="userInput" placeholder="Enter a task" class="w-[100%] p-4 border-2 border-r-0 rounded-tl-sm rounded-bl-sm border-[var(--gray)] outline-0 transition-all duration-200 ease-linear focus:border-[var(--blue)]">
+
+                <button type="button" id="addBtn" class="p-4 bg-[var(--blue)] border-2 rounded-tr-sm rounded-br-sm border-[var(--blue)] font-medium text-[var(--white)] cursor-pointer">Add</button>
+            </form>
+
+        </div>
+
+
+        <!--tasks-->
+        <div class="px-4 py-5 flex flex-col items-center justify-center gap-8">
+                <h2 class="flex items-center justify-center gap-2 text-center text-2xl text-[var(--black)] font-semibold"><i class="bx bx-pen text-[var(--blue)]"></i> Tasks <span class="bg-[var(--blue)] flex items-center justify-center w-8 h-7 rounded-full text-base text-[var(--white)]" id="taskCounter">0</span> </h2>
+
+
+                <div id="taskTable" class="flex flex-col gap-4 max-h-[200px] min-h-[300px] overflow-y-auto"></div>
+        </div>
+
+
+        <!--completed-->
+        <div class="px-4 py-5 flex flex-col items-center justify-center gap-8">
+                <h2 class="flex items-center justify-center gap-2 text-center text-2xl text-[var(--black)] font-semibold"><i class="bx bx-check text-[var(--blue)]"></i> Completed <span class="bg-[var(--blue)] flex items-center justify-center w-8 h-7 rounded-full text-base text-[var(--white)]" id="completedCounter">0</span> </h2>
+
+
+                <div id="completedTable" class="flex flex-col gap-4 max-h-[200px] min-h-[300px] overflow-y-auto"></div>
+        </div>
+
+    </div>
+
+    <p id="msg" class="absolute bottom-5 right-10 p-6 bg-[var(--white)] flex items-center justify-center shadow-lg"></p>
+
+    <!-- <script src="./public/js/main.js"></script> -->
+    <script src="./public/js/task.js"></script>
+</body>
+</html>
