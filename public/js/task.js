@@ -4,7 +4,7 @@ const compeltedTable = document.getElementById('completedTable'); //div to hold 
 
 
 
-//error handling
+//status message
 const msg = document.getElementById('msg'); //status pop up
 msg.style.display = "none";
 
@@ -33,6 +33,7 @@ addBtn.addEventListener('click', ()=>{
         msg.innerHTML = `
         <span class="text-[var(--black)] text-center text-base font-semibold flex items-center justify-center gap-2 mt-4 transition-all duration-200"><i class='bx bxs-x-circle text-xl text-red-600'></i>Task was not added</span>
     `
+        removeMessage()
     }
 
     else{
@@ -40,19 +41,17 @@ addBtn.addEventListener('click', ()=>{
         //pop up message 'sucessfully added'
         msg.style.display = "block";
         msg.innerHTML = `
-        <span class="text-[var(--black)] text-center text-base font-semibold flex items-center justify-center gap-2 mt-4 transition-all duration-200"><i class='bx bxs-check-circle text-xl text-lime-600'></i>Task added sucessfully </span>
-    `
+        <span class="text-[var(--black)] text-center text-base font-semibold flex items-center justify-center gap-2 mt-4 transition-all duration-200"><i class='bx bxs-check-circle text-xl text-lime-600'></i>Task added sucessfully </span>`
+        removeMessage()
 
         //creating div that works as task card
         let task = document.createElement('div');
         
         //creating the content to be inside the div
         task.innerHTML = 
-        `<div class="p-4 bg-[var(--blue)] rounded-sm text-[var(--white)] flex items-center justify-between gap-4">
-        <p>${userInput.value}</p>
-        <i class="bx bx-check text-2xl cursor-pointer closeBtn"></i>
-        </div>`
+        `<div class="p-4 bg-[var(--blue)] rounded-sm text-[var(--white)] flex items-center justify-between gap-4 min-w-[100%]"><p>${userInput.value}</p><i class="bx bx-check text-2xl bg-blue-950 cursor-pointer min-h-full p-2 rounded-sm closeBtn"></i></div>`
 
+        reset();
 
         //remove btn
         let removeBtn = task.querySelector('.closeBtn');
@@ -69,6 +68,7 @@ addBtn.addEventListener('click', ()=>{
 
             msg.style.display = "block";
             msg.innerHTML = `<span class="text-[var(--black)] text-center text-base font-semibold flex items-center justify-center gap-2 mt-4 transition-all duration-200"><i class='bx bxs-check-circle text-xl text-yellow-600'></i>Task completed</span>`;
+            removeMessage()
 
             
             //delete button
@@ -79,40 +79,31 @@ addBtn.addEventListener('click', ()=>{
                 completedTaskCounter()
                 msg.style.display = "block";
                 msg.innerHTML = `<span class="text-[var(--black)] text-center text-base font-semibold flex items-center justify-center gap-2 mt-4 transition-all duration-200"><i class='bx bxs-trash text-xl text-red-600'></i>Task deleted</span>`;
-                //completedCounter.innerHTML = x -=1;
-
-   /*              if(taskCounter.innerHTML > 1){
-                    taskCounter.innerHTML = i-= 1 ;
-                } */
-                
+                removeMessage()
             })
 
-            //counter calculations
-
-            //let deleteBtn = task
-            //completedCounter.innerHTML = x +=1;
-            completedTaskCounter()
-            activeTaskCounter()
-            //taskCounter.innerHTML = i-= 1 ;
+            completedTaskCounter();
+            activeTaskCounter();
         });
 
-        taskTable.append(task)
-        activeTaskCounter()
-        //taskCounter.innerHTML = i+= 1 ;
-        reset()
+        taskTable.append(task);
+        activeTaskCounter();
     }
 });
 
 //i.e reset input i.e make field empty
 function reset(){
     userInput.value = '';
-}
+};
 
 //remove msg
-userInput.addEventListener('keypress', ()=> {
+function removeMessage(){
+    setTimeout(() => {
         msg.innerHTML = ''; 
         msg.style.display = "none";   
-});
+    }, 2000);
+}
+
 
 
 //number of childern in an element instead of an onclick counter with if statements

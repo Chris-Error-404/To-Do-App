@@ -16,7 +16,7 @@
 </head>
 <body class="bg-var(--white) min-h-[100svh] flex flex-col items-center justify-center">
 
-    <div class="mx-auto container grid lg:grid-cols-3 lg:max-w-[1400px] items-start justify-start">
+    <div class="mx-auto container grid lg:grid-cols-3 lg:max-w-[1400px] items-start justify-start gap-4">
 
         <!--input-->
         <div class="px-4 py-5">
@@ -35,20 +35,21 @@
 
 
         <!--tasks-->
-        <div class="px-4 py-5 flex flex-col items-center justify-center gap-8">
-                <h2 class="flex items-center justify-center gap-2 text-center text-2xl text-[var(--black)] font-semibold"><i class="bx bx-pen text-[var(--blue)]"></i> Tasks <span class="bg-[var(--blue)] flex items-center justify-center w-8 h-7 rounded-full text-base text-[var(--white)]" id="taskCounter">0</span> </h2>
+        <div class="p-4 flex flex-col items-center justify-center gap-8 rounded-md border-2 border-[var(--light-blue)]">
+                <h2 class=" border-b-2 border-b-[var(--mid-blue)] pb-2 flex items-center justify-center gap-2 text-center text-2xl text-[var(--black)] font-semibold"><i class="bx bx-pen text-[var(--blue)]"></i> Tasks <span class="bg-[var(--blue)] flex items-center justify-center w-8 h-7 rounded-full text-base text-[var(--white)]" id="taskCounter">0</span> </h2>
 
 
-                <div id="taskTable" class="flex flex-col gap-4 max-h-[200px] min-h-[300px] overflow-y-auto"></div>
+                <div id="taskTable" class="flex flex-col gap-4 max-h-[600px] min-h-[500px] overflow-y-auto">
+                </div>
         </div>
 
 
         <!--completed-->
-        <div class="px-4 py-5 flex flex-col items-center justify-center gap-8">
-                <h2 class="flex items-center justify-center gap-2 text-center text-2xl text-[var(--black)] font-semibold"><i class="bx bx-check text-[var(--blue)]"></i> Completed <span class="bg-[var(--blue)] flex items-center justify-center w-8 h-7 rounded-full text-base text-[var(--white)]" id="completedCounter">0</span> </h2>
+        <div class="px-4 py-5 flex flex-col items-center justify-center gap-8 rounded-md border-2 border-[var(--light-blue)]">
+                <h2 class="border-b-2 border-b-[var(--mid-blue)] pb-2 flex items-center justify-center gap-2 text-center text-2xl text-[var(--black)] font-semibold"><i class="bx bx-check text-[var(--blue)]"></i> Completed <span class="bg-[var(--blue)] flex items-center justify-center w-8 h-7 rounded-full text-base text-[var(--white)]" id="completedCounter">0</span> </h2>
 
 
-                <div id="completedTable" class="flex flex-col gap-4 max-h-[200px] min-h-[300px] overflow-y-auto"></div>
+                <div id="completedTable" class="flex flex-col gap-4 max-h-[600px] min-h-[500px] overflow-y-auto"></div>
         </div>
 
     </div>
