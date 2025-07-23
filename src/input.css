@@ -25,3 +25,9 @@ body{
     --mid-blue: #3b5ed8;
     --light-blue: rgba(38, 87, 164, 0.1);
 }
+
+.task-bg:hover{
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+    background-color: rgb(223, 54, 54);
+}
